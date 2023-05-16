@@ -9,6 +9,7 @@ public class Game extends Canvas implements Runnable, KeyListener
 
     public static int WIDTH = 480, HEIGHT = 480;
     public Player player;
+    public World world;
 
     public void tick()
     {
@@ -29,6 +30,7 @@ public class Game extends Canvas implements Runnable, KeyListener
         g.fillRect(0,0, WIDTH, HEIGHT);
 
         player.render(g);
+        world.render(g);
 
 
         bs.show();
@@ -39,7 +41,8 @@ public class Game extends Canvas implements Runnable, KeyListener
         this.addKeyListener(this);
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
-        player = new Player(0,0);
+        player = new Player(32,32);
+        world = new World();
     }
 
     public static void main(String[] args)
