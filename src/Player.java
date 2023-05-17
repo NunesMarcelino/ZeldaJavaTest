@@ -26,8 +26,7 @@ public class Player extends Rectangle
 
     public void render(Graphics g)
     {
-        g.setColor(Color.blue);
-        g.fillRect(x,y,width,height);
+        g.drawImage(Spritesheet.Player_front,x,y,32,32,null);
     }
 
     public Player(int x, int y)
