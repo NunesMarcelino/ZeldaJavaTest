@@ -3,12 +3,15 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game extends Canvas implements Runnable, KeyListener
 {
 
     public static int WIDTH = 640, HEIGHT = 480;
     public static int SCALE = 3;
+
     public Player player;
     public World world;
 
@@ -109,6 +112,12 @@ public class Game extends Canvas implements Runnable, KeyListener
         {
             player.down = true;
         }
+
+        if (e.getKeyCode() == KeyEvent.VK_Z)
+        {
+            player.shoot = true;
+        }
+
     }
 
     @Override
