@@ -30,6 +30,8 @@ public class World
             blocos.add(new Blocks(640-32,xx*32));
         }
 
+        blocos.add(new Blocks(200, 50));
+
     }
 
     public static boolean isFree(int x, int y)

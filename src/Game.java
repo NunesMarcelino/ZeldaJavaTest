@@ -12,12 +12,17 @@ public class Game extends Canvas implements Runnable, KeyListener
     public static int WIDTH = 640, HEIGHT = 480;
     public static int SCALE = 3;
 
-    public Player player;
+    public static Player player;
     public World world;
+    public List<Enemy> Enemies = new ArrayList<Enemy>();
 
     public void tick()
     {
         player.tick();
+        for (int i = 0; i < Enemies.size(); i++)
+        {
+            Enemies.get(i).tick();
+        }
     }
 
     public void render()
@@ -34,6 +39,12 @@ public class Game extends Canvas implements Runnable, KeyListener
         g.fillRect(0,0, WIDTH*SCALE, HEIGHT*SCALE);
 
         player.render(g);
+
+        for (int i = 0; i < Enemies.size(); i++)
+        {
+            Enemies.get(i).render(g);
+        }
+
         world.render(g);
 
 
@@ -49,6 +60,8 @@ public class Game extends Canvas implements Runnable, KeyListener
 
         player = new Player(32,32);
         world = new World();
+        Enemies.add(new Enemy(82,64));
+        Enemies.add(new Enemy(82,204));
     }
 
     public static void main(String[] args)
